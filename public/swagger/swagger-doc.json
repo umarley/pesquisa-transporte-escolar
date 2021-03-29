@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://petstore.swagger.io/v2"
+      "url": "http://pesquisaufg.umarleyricardo.eti.br"
     }
   ],
   "tags": [
