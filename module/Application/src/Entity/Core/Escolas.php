@@ -15,12 +15,11 @@ class Escolas extends AbstractDatabase {
         parent::__construct(AbstractDatabase::DATABASE_CORE);
     }
 
-    public function procurarEscolaPorTermoAndMunicipio($termo, $municipio) {
+    public function procurarEscolaPorMunicipio($municipio) {
         $sql = new Sql($this->AdapterBD);
         $select = $sql->select($this->tableIdentifier)
                 ->columns(['CO_ENTIDADE', 'NO_ENTIDADE'])
                 ->where("CO_MUNICIPIO = {$municipio}")
-                ->where("NO_ENTIDADE LIKE '%{$termo}%'")
                 ->order("NO_ENTIDADE ASC");
         $prepare = $sql->prepareStatementForSqlObject($select);
         $arLista = [];

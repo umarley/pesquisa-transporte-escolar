@@ -15,5 +15,32 @@ class Perguntas extends AbstractDatabase {
         parent::__construct(AbstractDatabase::DATABASE_CORE);
     }
     
+    public function getListaPerguntasByQuestionario($idQuestionario){
+        $sql = "SELECT p.id_pergunta, p.ordem, p.enunciado, tipo, model, pai FROM perguntas p
+                    WHERE id_questionario = {$idQuestionario}
+                    AND p.sub_ordem IS NULL
+                    ORDER BY ordem ASC";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $arLista = [];
+        $this->getResultSet($statement->execute());
+        foreach ($this->resultSet as $row){
+            $arLista[] = $row;
+        }
+        return $arLista;
+    }
+    
+    
+    public function getItensGradeMultiplaEscolha($idPergunta){
+        $sql = "SELECT id_pergunta, sub_ordem as sub_id, enunciado FROM perguntas p WHERE p.sub_ordem LIKE '{$idPergunta}%'";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $arLista = [];
+        $this->getResultSet($statement->execute());
+        foreach ($this->resultSet as $row){
+            $arLista[] = $row;
+        }
+        return $arLista;
+    }
 
 }

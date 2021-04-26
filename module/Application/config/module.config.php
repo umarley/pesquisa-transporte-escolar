@@ -115,6 +115,84 @@ return [
                     ],
                 ],
             ],
+            'questionarios' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/questionarios',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\QuestionariosController',
+                        'action' => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    // Segment route for viewing one blog post
+                    'geral-bid' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/[:action[/:param1[/:param2[/:param3]]]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z0-9_-]+',
+                            ],
+                            'defaults' => [
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'perguntas' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/perguntas',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\PerguntasController',
+                        'action' => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    // Segment route for viewing one blog post
+                    'geral-bid' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/[:action[/:param1[/:param2[/:param3]]]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z0-9_-]+',
+                            ],
+                            'defaults' => [
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'respostas' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/respostas',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\RespostasController',
+                        'action' => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    // Segment route for viewing one blog post
+                    'geral-bid' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/[:action[/:param1[/:param2[/:param3]]]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z0-9_-]+',
+                            ],
+                            'defaults' => [
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
@@ -123,6 +201,9 @@ return [
             Controller\EstadosController::class => InvokableFactory::class,
             Controller\MunicipiosController::class => InvokableFactory::class,
             Controller\EscolasController::class => InvokableFactory::class,
+            Controller\PerguntasController::class => InvokableFactory::class,
+            Controller\QuestionariosController::class => InvokableFactory::class,
+            Controller\RespostasController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

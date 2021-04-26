@@ -13,8 +13,8 @@ class EscolasModel {
         return $this->_entity->getLista($codigoEstado);
     }
     
-    public function find($termo, $codigoMunicipio){
-        return $this->_entity->procurarEscolaPorTermoAndMunicipio($termo, $codigoMunicipio);
+    public function find($codigoMunicipio){
+        return $this->_entity->procurarEscolaPorMunicipio($codigoMunicipio);
     }
 }
 

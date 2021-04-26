@@ -25,11 +25,13 @@ class API extends AbstractActionController {
                 header('Access-Control-Allow-Origin: *');
                 header('Content-Type: application/json', true, 400);
                 echo json_encode(['result' => false, 'messages' => 'Cabeçalho Authorization vazio!']);
+                exit;
             }
         } else {
             header('Access-Control-Allow-Origin: *');
             header('Content-Type: application/json', true, 400);
             echo json_encode(['result' => false, 'messages' => 'Cabeçalho Authorization ausente!']);
+            exit;
         }
     }
 
@@ -46,7 +48,7 @@ class API extends AbstractActionController {
             $arResult = $arResposta;
         }
         
-        if($codigoStatus !== 404){
+        if( !in_array($codigoStatus, [404, 400])){
             $arResult['result'] = isset($arResposta['result']) ? $arResposta['result'] : true;
         }else{
             $arResult['result'] = false;
