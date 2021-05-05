@@ -15,7 +15,7 @@ class MunicipiosController extends Abstracao\API {
             $this->populaResposta(404, ['messages' => "Código do estado deve ser informado!"], false);
         } else {
             $modelMunicipios = new \Application\Model\MunicipiosModel();
-            $this->populaResposta(200, $modelMunicipios->getAll($codigoEstado));
+            $this->populaResposta(200, $modelMunicipios->getSelect($codigoEstado));
         }
         exit;
     }
