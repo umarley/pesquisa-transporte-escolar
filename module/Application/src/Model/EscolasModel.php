@@ -16,5 +16,15 @@ class EscolasModel {
     public function find($codigoMunicipio){
         return $this->_entity->procurarEscolaPorMunicipio($codigoMunicipio);
     }
+    
+    public function getSelect($codigoMunicipio){
+        $arData = $this->_entity->procurarEscolaPorMunicipio($codigoMunicipio);
+        $arSelect = [];
+        foreach ($arData as $key => $row){
+            $arSelect[$key]['value'] = $row['CO_ENTIDADE'];
+            $arSelect[$key]['label'] = $row['CO_ENTIDADE'] . " - " . $row['NO_ENTIDADE'];
+        }
+        return $arSelect;
+    }
 }
 

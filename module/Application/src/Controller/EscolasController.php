@@ -15,7 +15,7 @@ class EscolasController extends Abstracao\API {
             $this->populaResposta(400, ['messages' => "Código do municipio deve ser informados!"], false);
         } else {
             $modelEscolas = new \Application\Model\EscolasModel();
-            $this->populaResposta(200, $modelEscolas->find($codigoMunicipio));
+            $this->populaResposta(200, $modelEscolas->getSelect($codigoMunicipio));
         }
         exit;
     }
