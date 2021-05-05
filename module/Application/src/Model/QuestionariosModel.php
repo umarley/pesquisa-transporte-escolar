@@ -60,6 +60,7 @@ class QuestionariosModel {
                 unset($rowPergunta['pai']);
                 break;
             case \Db\Core\TipoPergunta::RESPOSTA_MATRIZ:
+                $dbCorePerguntas = new \Db\Core\Perguntas();
                 unset($rowPergunta['model']);
                 unset($rowPergunta['pai']);
                 $rowPergunta['itens'] = $dbCorePerguntas->getItensGradeMultiplaEscolha($rowPergunta['id_pergunta']);
