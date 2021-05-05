@@ -13,5 +13,15 @@ class MunicipiosModel {
         return $this->_entity->getLista($codigoEstado);
     }
     
+    public function getSelect($codigoEstado){
+        $arData = $this->_entity->getLista($codigoEstado);
+        $arSelect = [];
+        foreach ($arData as $key => $row){
+            $arSelect[$key]['value'] = $row['codigo_ibge'];
+            $arSelect[$key]['label'] = $row['nome'];
+        }
+        return $arSelect;
+    }
+    
 }
 

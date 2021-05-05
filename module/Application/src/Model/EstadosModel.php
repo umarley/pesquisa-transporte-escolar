@@ -13,5 +13,15 @@ class EstadosModel {
         return $this->_entity->getLista();
     }
     
+    public function getSelect(){
+        $arLista = $this->_entity->getLista();
+        $arSelect = [];
+        foreach ($arLista as $key => $row){
+            $arSelect[$key]['value'] = $row['codigo'];
+            $arSelect[$key]['label'] = $row['nome'];
+        }
+        return $arSelect;
+    }
+    
 }
 

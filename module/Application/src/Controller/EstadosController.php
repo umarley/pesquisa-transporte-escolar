@@ -16,7 +16,7 @@ class EstadosController extends Abstracao\API {
 
     public function indexAction() {
         $modelEstados = new \Application\Model\EstadosModel();  
-        $this->populaResposta(200, $modelEstados->getAll());
+        $this->populaResposta(200, $modelEstados->getSelect());
         exit;
     }
 
