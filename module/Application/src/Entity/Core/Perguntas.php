@@ -25,6 +25,9 @@ class Perguntas extends AbstractDatabase {
         $arLista = [];
         $this->getResultSet($statement->execute());
         foreach ($this->resultSet as $key => $row){
+            if(empty($row['mostrar'])){
+                unset($row['mostrar']);
+            }
             $arLista[$key] = $row;
         }
         return $arLista;
