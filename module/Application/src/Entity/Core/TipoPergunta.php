@@ -20,8 +20,8 @@ class TipoPergunta extends AbstractDatabase {
     
     const MODEL_APIS = [
         'select-estado' => 'estados',
-        'select-municipios' => 'municipios/estado/{codigo_ibge}',
-        'select-escolas' => 'escolas/buscar/{codigo_municipio}'
+        'select-municipios' => 'municipios/estado/{pai}',
+        'select-escolas' => 'escolas/buscar/{pai}'
     ];
     
     public function __construct() {
