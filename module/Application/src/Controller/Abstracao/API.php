@@ -17,18 +17,24 @@ class API extends AbstractActionController {
                 $valido = $dbModelAuthenticator->validarAccessToken($accessToken);
                 if (!$valido) {
                     header('Access-Control-Allow-Origin: *');
+                    header('Access-Control-Allow-Methods: PUT, GET, POST, PATCH, DELETE, OPTIONS');
+                    header('Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept');
                     header('Content-Type: application/json', true, 401);
                     echo json_encode(['result' => false, 'messages' => 'Access Token inválido!']);
                     exit;
                 }
             } else {
                 header('Access-Control-Allow-Origin: *');
+                header('Access-Control-Allow-Methods: PUT, GET, POST, PATCH, DELETE, OPTIONS');
+                header('Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept');
                 header('Content-Type: application/json', true, 400);
                 echo json_encode(['result' => false, 'messages' => 'Cabeçalho Authorization vazio!']);
                 exit;
             }
         } else {
             header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: PUT, GET, POST, PATCH, DELETE, OPTIONS');
+            header('Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept');
             header('Content-Type: application/json', true, 400);
             echo json_encode(['result' => false, 'messages' => 'Cabeçalho Authorization ausente!']);
             exit;
