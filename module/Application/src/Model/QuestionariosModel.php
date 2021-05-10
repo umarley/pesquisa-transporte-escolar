@@ -15,12 +15,12 @@ class QuestionariosModel {
     
     public function montarQuestionario($idQuestionario){
         $dbCorePerguntas = new \Db\Core\Perguntas();
+        $dbCoreQuestionario = new \Db\Core\Questionarios();
         $arPerguntas = $dbCorePerguntas->getListaPerguntasByQuestionario($idQuestionario);
         foreach ($arPerguntas as $key => $row){
             $arPerguntas[$key] = $this->processarPergunta($row);
         }
-        
-        return $arPerguntas;
+        return ['perguntas' => $arPerguntas, 'titulo' => $dbCoreQuestionario->getNomeById($idQuestionario)];
     }
     
     private function processarPergunta($rowPergunta){

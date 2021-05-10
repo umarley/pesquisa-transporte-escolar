@@ -29,5 +29,13 @@ class Questionarios extends AbstractDatabase {
         return $arLista;
     }
     
+    public function getNomeById($id){
+        $sql = "SELECT titulo FROM questionario WHERE id = {$id}";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $row = $statement->execute()->current();
+        return $row['titulo'];
+    }
+    
 
 }
