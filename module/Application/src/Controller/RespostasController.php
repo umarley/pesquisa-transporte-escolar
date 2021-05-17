@@ -11,22 +11,13 @@ class RespostasController extends Abstracao\API {
 
     public function indexAction() {
 
-            $conteudo = file_get_contents("php://input");
-            $arPost = json_decode($conteudo, true);
-
-            var_dump($arPost);
-        
+        $conteudo = file_get_contents("php://input");
+        $arPost = json_decode($conteudo, true);
+        $modelResposta = new \Application\Model\RespostaModel();
+        $idQuestionario = $arPost['id_questionario'];
+        $modelResposta->processarRespostas($idQuestionario, $arPost['respostas']);
+        $this->populaResposta(200, ['result' => true, 'messages' => "Questionário respondido com sucesso!"], false);
         exit;
     }
 
-    /* public function estadoAction() {
-      $codigoEstado = $this->params()->fromRoute('id');
-      if (empty($codigoEstado)) {
-      $this->populaResposta(404, ['messages' => "Código do estado deve ser informado!"], false);
-      } else {
-      $modelMunicipios = new \Application\Model\MunicipiosModel();
-      $this->populaResposta(200, $modelMunicipios->getAll($codigoEstado));
-      }
-      exit;
-      } */
 }
