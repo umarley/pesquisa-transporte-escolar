@@ -56,7 +56,7 @@ class RespostaModel {
                 break;
             case \Db\Core\TipoPergunta::SELECT:
                 $arRetorno['id_pergunta'] = $idPergunta;
-                $arRetorno['resposta_codigo'] = $arResposta;
+                $arRetorno['resposta_select'] = $arResposta;
                 break;
             case \Db\Core\TipoPergunta::GRADE_MULTIPLA_ESCOLHA:
                 $arRetorno['id_pergunta'] = $idPergunta;
