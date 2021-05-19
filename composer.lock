@@ -988,71 +988,6 @@
             "time": "2021-02-03T08:44:41+00:00"
         },
         {
-            "name": "laminas/laminas-skeleton-installer",
-            "version": "0.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laminas/laminas-skeleton-installer.git",
-                "reference": "6e8c0044290ef2ce152a8d75288497449c4620e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-skeleton-installer/zipball/6e8c0044290ef2ce152a8d75288497449c4620e4",
-                "reference": "6e8c0044290ef2ce152a8d75288497449c4620e4",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
-                "laminas/laminas-component-installer": "^1.0 || ^2.1.2",
-                "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^5.6 || ^7.0"
-            },
-            "replace": {
-                "zendframework/zend-skeleton-installer": "^0.1.7"
-            },
-            "require-dev": {
-                "composer/composer": "^1.5.2 || ^2.0",
-                "laminas/laminas-coding-standard": "~1.0.0",
-                "malukenho/docheader": "^0.1.7",
-                "mikey179/vfsstream": "^1.6.7",
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.4"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Laminas\\SkeletonInstaller\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laminas\\SkeletonInstaller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Installer plugin for Laminas skeleton application",
-            "homepage": "https://laminas.dev",
-            "keywords": [
-                "laminas",
-                "skeleton-installer"
-            ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-skeleton-installer/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-skeleton-installer/issues",
-                "rss": "https://github.com/laminas/laminas-skeleton-installer/releases.atom",
-                "source": "https://github.com/laminas/laminas-skeleton-installer"
-            },
-            "funding": [
-                {
-                    "url": "https://funding.communitybridge.org/projects/laminas-project",
-                    "type": "community_bridge"
-                }
-            ],
-            "time": "2020-12-16T15:06:54+00:00"
-        },
-        {
             "name": "laminas/laminas-stdlib",
             "version": "3.3.1",
             "source": {
@@ -1598,8 +1533,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3"
+        "php": {}
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

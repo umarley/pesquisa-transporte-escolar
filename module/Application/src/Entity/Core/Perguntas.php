@@ -52,5 +52,14 @@ class Perguntas extends AbstractDatabase {
         }
         return $arLista;
     }
+    
+    public function getTipoPergunta($idPergunta){
+        $sql = "SELECT tipo FROM perguntas p
+                    WHERE p.id_pergunta = {$idPergunta}";
+                    $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $row = $statement->execute()->current();
+        return $row['tipo'];
+    }
 
 }
