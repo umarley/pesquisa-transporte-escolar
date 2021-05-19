@@ -18,6 +18,7 @@ return [
     'lmc_cors' => [
         'allowed_origins' => ['*'],
         'allowed_methods' => ['*'],
+        'allowed_headers' => ['*']
     ],
     'router' => [
         'routes' => [
