@@ -15,5 +15,6 @@ return [
     'Laminas\Db',
     'Laminas\Router',
     'Laminas\Validator',
+    'LmcCors',
     'Application',
 ];
