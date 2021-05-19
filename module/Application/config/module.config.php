@@ -15,6 +15,11 @@ use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
+    'lmc_cors' => [
+        'allowed_origins' => ['*'],
+        'allowed_methods' => ['*'],
+        'allowed_headers' => ['*']
+    ],
     'router' => [
         'routes' => [
             'home' => [
