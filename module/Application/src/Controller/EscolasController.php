@@ -19,5 +19,17 @@ class EscolasController extends Abstracao\API {
         }
         exit;
     }
+    
+    
+    public function getAction() {
+        $codigoEscola = $this->params()->fromRoute('id');
+        if (empty($codigoEscola)) {
+            $this->populaResposta(400, ['messages' => "Código da escola deve ser informado!"], false);
+        } else {
+            $modelEscolas = new \Application\Model\EscolasModel();
+            $this->populaResposta(200, $modelEscolas->getDadosSearch($codigoEscola));
+        }
+        exit;
+    }
 
 }

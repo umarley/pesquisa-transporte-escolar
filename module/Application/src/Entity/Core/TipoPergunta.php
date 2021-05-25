@@ -17,11 +17,13 @@ class TipoPergunta extends AbstractDatabase {
     const SELECT = '6';
     const AUTO_COMPLETE = '7';
     const RESPOSTA_MATRIZ = '8';
+    const SEARCH = '9';
     
     const MODEL_APIS = [
         'select-estado' => 'estados',
         'select-municipios' => 'municipios/estado/{pai}',
-        'select-escolas' => 'escolas/buscar/{pai}'
+        'select-escolas' => 'escolas/buscar/{pai}',
+        'search-escolas' => 'escolas/get/{id}'
     ];
     
     public function __construct() {

@@ -26,5 +26,17 @@ class EscolasModel {
         }
         return $arSelect;
     }
+    
+    public function getDadosSearch($codigoEscola){
+        $arDados = $this->_entity->getEscolaById($codigoEscola);
+        if(is_array($arDados)){
+            return ['result' => true, 'messages' => "Escola: {$arDados['nm_escola']} <br />Cidade: {$arDados['cidade']} <br />Estado: {$arDados['estado']}"];
+        }else{
+            return ['result' => false, 'messages' => "Escola não encontrada. Verifique o código INEP e tente novamente!"];
+        }
+        
+        
+        exit;
+    }
 }
 

@@ -26,6 +26,10 @@ class QuestionariosModel {
     private function processarPergunta($rowPergunta){
         $urlHelper = new \Application\Utils\UrlHelper();
         switch($rowPergunta->tipo){
+            case \Db\Core\TipoPergunta::SEARCH:
+                $rowPergunta['api'] =  $urlHelper->baseUrl(\Db\Core\TipoPergunta::MODEL_APIS[$rowPergunta['model']]);
+                unset($rowPergunta['model']);
+                break;
             case \Db\Core\TipoPergunta::SELECT:
                 $rowPergunta['api'] =  $urlHelper->baseUrl(\Db\Core\TipoPergunta::MODEL_APIS[$rowPergunta['model']]);
                 unset($rowPergunta['model']);

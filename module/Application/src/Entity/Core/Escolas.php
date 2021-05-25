@@ -29,5 +29,16 @@ class Escolas extends AbstractDatabase {
         }
         return $arLista;
     }
+    
+    public function getEscolaById($codigoEscola){
+        $sql = "SELECT esc.NO_ENTIDADE as nm_escola, mun.nome as cidade, est.nome as estado FROM glb_escolas esc
+                INNER JOIN glb_municipio mun ON esc.CO_MUNICIPIO = mun.codigo_ibge
+                INNER JOIN glb_estado est ON est.codigo = mun.codigo_uf
+                WHERE esc.CO_ENTIDADE = {$codigoEscola}
+                LIMIT 1";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $row = $statement->execute()->current();
+        return $row;
+    }
 
 }

@@ -54,6 +54,10 @@ class RespostaModel {
                 $arRetorno['id_pergunta'] = $idPergunta;
                 $arRetorno['resposta_codigo'] = $arResposta;
                 break;
+            case \Db\Core\TipoPergunta::SEARCH:
+                $arRetorno['id_pergunta'] = $idPergunta;
+                $arRetorno['resposta_select'] = $arResposta;
+                break;
             case \Db\Core\TipoPergunta::SELECT:
                 $arRetorno['id_pergunta'] = $idPergunta;
                 $arRetorno['resposta_select'] = $arResposta;
