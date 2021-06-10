@@ -20,7 +20,12 @@ class QuestionariosModel {
         foreach ($arPerguntas as $key => $row){
             $arPerguntas[$key] = $this->processarPergunta($row);
         }
-        return ['perguntas' => $arPerguntas, 'titulo' => $dbCoreQuestionario->getNomeById($idQuestionario)];
+        return [
+                'perguntas' => $arPerguntas, 
+                'titulo' => $dbCoreQuestionario->getNomeById($idQuestionario),
+                'texto' => $dbCoreQuestionario->getTextoById($idQuestionario),
+                'glossario' => $dbCoreQuestionario->getGlossarioById($idQuestionario) 
+              ];
     }
     
     private function processarPergunta($rowPergunta){

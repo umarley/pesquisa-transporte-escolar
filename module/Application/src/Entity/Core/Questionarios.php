@@ -37,5 +37,20 @@ class Questionarios extends AbstractDatabase {
         return $row['titulo'];
     }
     
+    public function getTextoById($id){
+        $sql = "SELECT texto FROM questionario WHERE id = {$id}";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $row = $statement->execute()->current();
+        return $row['texto'];
+    }
+    
+    public function getGlossarioById($id){
+        $sql = "SELECT glossario FROM questionario WHERE id = {$id}";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $row = $statement->execute()->current();
+        return $row['glossario'];
+    }
 
 }
