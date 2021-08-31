@@ -13,8 +13,10 @@ class RespostasController extends Abstracao\API {
 
         $conteudo = file_get_contents("php://input");
         $arPost = json_decode($conteudo, true);
+        $modelQuestionario = new \Application\Model\QuestionariosModel();
         $modelResposta = new \Application\Model\RespostaModel();
         $idQuestionario = $arPost['id_questionario'];
+        $modelQuestionario->questionarioValido($idQuestionario);
         $modelResposta->processarRespostas($idQuestionario, $arPost['respostas']);
         $this->populaResposta(200, ['result' => true, 'messages' => "Questionário respondido com sucesso!"], false);
         exit;
