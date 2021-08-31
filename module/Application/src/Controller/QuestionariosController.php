@@ -20,6 +20,7 @@ class QuestionariosController extends Abstracao\API {
         $idQuestionario = $this->params()->fromRoute('param1');
         if(!empty($idQuestionario)){
             $modelQuestionario = new \Application\Model\QuestionariosModel();
+            $modelQuestionario->questionarioValido($idQuestionario);
             $this->populaResposta(200, $modelQuestionario->montarQuestionario($idQuestionario));
         }else{
             $this->populaResposta(400, ['messages' => "o ID do questionário deve ser informados!"], false);

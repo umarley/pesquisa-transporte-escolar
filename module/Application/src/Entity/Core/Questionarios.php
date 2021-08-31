@@ -52,5 +52,19 @@ class Questionarios extends AbstractDatabase {
         $row = $statement->execute()->current();
         return $row['glossario'];
     }
+    
+    public function questionarioPodeSerRespondido($idQuestionario){
+        $sql = "SELECT count(*) as qtd FROM questionario q
+                    WHERE now() between q.dt_inicio and q.dt_final
+                    AND id = {$idQuestionario}";
+        $statement = $this->AdapterBD->createStatement($sql);
+        $statement->prepare();
+        $row = $statement->execute()->current();  
+        if($row['qtd'] > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
