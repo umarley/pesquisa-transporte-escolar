@@ -31,7 +31,7 @@ class QuestionariosModel {
         $dbCoreQuestionario = new \Db\Core\Questionarios();
         $arPerguntas = $dbCorePerguntas->getListaPerguntasByQuestionario($idQuestionario);
         foreach ($arPerguntas as $key => $row) {
-            $arPerguntas[$key] = $this->processarPergunta($row);
+            $arPerguntas[$key] = $this->processarPergunta($row, $idQuestionario);
         }
         return [
             'perguntas' => $arPerguntas,
@@ -41,7 +41,7 @@ class QuestionariosModel {
         ];
     }
 
-    private function processarPergunta($rowPergunta) {
+    private function processarPergunta($rowPergunta, $idQuestionario) {
         $urlHelper = new \Application\Utils\UrlHelper();
         switch ($rowPergunta->tipo) {
             case \Db\Core\TipoPergunta::SEARCH:
@@ -64,7 +64,7 @@ class QuestionariosModel {
             case \Db\Core\TipoPergunta::GRADE_MULTIPLA_ESCOLHA:
                 $dbCorePerguntas = new \Db\Core\Perguntas();
                 $rowPergunta = $this->getOpcoesPergunta($rowPergunta, 'colunas');
-                $rowPergunta['itens'] = $dbCorePerguntas->getItensGradeMultiplaEscolha($rowPergunta['id_pergunta']);
+                $rowPergunta['itens'] = $dbCorePerguntas->getItensGradeMultiplaEscolha($rowPergunta['id_pergunta'], $idQuestionario);
                 unset($rowPergunta['model']);
                 unset($rowPergunta['pai']);
                 break;

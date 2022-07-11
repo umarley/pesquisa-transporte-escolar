@@ -10,7 +10,7 @@ use Laminas\Db\Sql\Predicate\Expression;
 class RespostasQuestoes extends AbstractDatabase {
 
     public function __construct() {
-        $this->table = 'respostas_q3';
+        $this->table = 'respostas_q4';
         $this->primaryKey = 'rowId';
         parent::__construct(AbstractDatabase::DATABASE_CORE);
     }

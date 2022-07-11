@@ -41,8 +41,9 @@ class Perguntas extends AbstractDatabase {
     }
     
     
-    public function getItensGradeMultiplaEscolha($idPergunta){
-        $sql = "SELECT id_pergunta, sub_ordem as sub_id, enunciado FROM perguntas p WHERE p.sub_ordem LIKE '{$idPergunta}%'";
+    public function getItensGradeMultiplaEscolha($idPergunta, $idQuestionario){
+        $sql = "SELECT id_pergunta, sub_ordem as sub_id, enunciado "
+                . "FROM perguntas p WHERE p.sub_ordem LIKE '{$idPergunta}%' AND p.id_questionario = {$idQuestionario}";
         $statement = $this->AdapterBD->createStatement($sql);
         $statement->prepare();
         $arLista = [];
