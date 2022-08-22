@@ -87,6 +87,12 @@ class QuestionariosModel {
                 unset($rowPergunta['pai']);
                 $rowPergunta['itens'] = $dbCorePerguntas->getItensGradeMultiplaEscolha($rowPergunta['id_pergunta'], $idQuestionario);
                 break;
+            case \Db\Core\TipoPergunta::RESPOSTA_MATRIZ_NUMBER:
+                $dbCorePerguntas = new \Db\Core\Perguntas();
+                unset($rowPergunta['model']);
+                unset($rowPergunta['pai']);
+                $rowPergunta['itens'] = $dbCorePerguntas->getItensGradeMultiplaEscolha($rowPergunta['id_pergunta'], $idQuestionario);
+                break;
         }
 
         return $rowPergunta;

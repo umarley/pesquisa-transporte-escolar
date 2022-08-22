@@ -74,6 +74,10 @@ class RespostaModel {
                 $arRetorno['id_pergunta'] = $idPergunta;
                 $arRetorno['opcoes'] = $this->processarRespostaMatriz($arResposta);
                 break;
+            case \Db\Core\TipoPergunta::RESPOSTA_MATRIZ_NUMBER:
+                $arRetorno['id_pergunta'] = $idPergunta;
+                $arRetorno['opcoes'] = $this->processarRespostaMatriz($arResposta);
+                break;
             default :
                 $arRetorno['id_pergunta'] = $idPergunta;
                 $arRetorno['resposta'] = $arResposta;
