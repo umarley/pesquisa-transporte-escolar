@@ -19,6 +19,7 @@ class TipoPergunta extends AbstractDatabase {
     const RESPOSTA_MATRIZ = '8';
     const SEARCH = '9';
     const RESPOSTA_MATRIZ_NUMBER = '10';
+    const RESPOSTA_CURTA_NUMBER = '11';
     
     const MODEL_APIS = [
         'select-estado' => 'estados',
