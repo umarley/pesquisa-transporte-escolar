@@ -16,7 +16,7 @@ class Perguntas extends AbstractDatabase {
     }
     
     public function getListaPerguntasByQuestionario($idQuestionario){
-        $sql = "SELECT p.id_pergunta, p.ordem, p.enunciado, tipo, model, pai, mostrar FROM perguntas p
+        $sql = "SELECT p.id_pergunta, p.ordem, p.enunciado, tipo, model, pai, mostrar, required FROM perguntas p
                     WHERE id_questionario = {$idQuestionario}
                     AND p.sub_ordem IS NULL
                     ORDER BY ordem ASC";

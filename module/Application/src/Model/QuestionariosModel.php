@@ -77,6 +77,10 @@ class QuestionariosModel {
                 unset($rowPergunta['model']);
                 unset($rowPergunta['pai']);
                 break;
+            case \Db\Core\TipoPergunta::RESPOSTA_CURTA_NUMBER:
+                unset($rowPergunta['model']);
+                unset($rowPergunta['pai']);
+                break;
             case \Db\Core\TipoPergunta::RESPOSTA_LONGA:
                 unset($rowPergunta['model']);
                 unset($rowPergunta['pai']);
